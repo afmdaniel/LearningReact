@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 
 export default class Greeting extends Component {
-    
+    constructor(props) {
+        super(props)
+        
+        this.setType = this.setType.bind(this)
+        this.setName = this.setName.bind(this)
+    }
+
     state = {
         type: this.props.type,
         name: this.props.name
     }
 
-    setType(newType) {
-        this.setState({ type: newType })
+    setType(event) {
+        this.setState({ type: event.target.value })
     }
 
-    setName(newName) {
-        this.setState({ name: newName })
+    setName(event) {
+        this.setState({ name: event.target.value })
     }
     
     render() {
@@ -21,8 +27,8 @@ export default class Greeting extends Component {
             <div>
                 <h1>{type}, {name}</h1>
                 <hr/>
-                <input type="text" placeholder="Tipo..." value={type} onChange={e => this.setType(e.target.value)}/>
-                <input type="text" placeholder="Nome..." value={name} onChange={e => this.setName(e.target.value)}/>
+                <input type="text" placeholder="Tipo..." value={type} onChange={this.setType}/>
+                <input type="text" placeholder="Nome..." value={name} onChange={this.setName}/>
             </div>
         );
     }
