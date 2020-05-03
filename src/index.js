@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Greeting from './components/Greeting'
+import Parent from './components/Parent'
 
 ReactDOM.render(
     <div>
-        <Greeting type="Boa noite" name="João" />
+        <Parent name="Daniel" lastname="Melo" />
     </div>,
     document.getElementById('root'));
